@@ -99,6 +99,15 @@ namespace TLHFaceTrack.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Perform Face Recognition.
+        /// </summary>
+        public static string Res_FaceRecPrompt {
+            get {
+                return ResourceManager.GetString("Res_FaceRecPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Start.
         /// </summary>
         public static string Res_Start {

@@ -28,6 +28,7 @@ namespace TLHFaceTrack
 
             Button_Start.IsEnabled = true;
             Button_Stop.IsEnabled = false;
+            CB_FaceRecognition.IsChecked = true;
         }
 
         #region ui event haandlers
@@ -80,6 +81,11 @@ namespace TLHFaceTrack
         {
             _camModel?.Dispose();
         }
+ 
+        private void CB_FaceRecognition_Click(object sender, RoutedEventArgs e)
+        {
+            _camModel?.RunFaceRecognition(CB_FaceRecognition.IsChecked.HasValue ? CB_FaceRecognition.IsChecked.Value : false);
+        }
         #endregion
-   }
+    }
 }

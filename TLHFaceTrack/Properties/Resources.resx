@@ -130,6 +130,9 @@
   <data name="Res_Error_Title" xml:space="preserve">
     <value>Error</value>
   </data>
+  <data name="Res_FaceRecPrompt" xml:space="preserve">
+    <value>Perform Face Recognition</value>
+  </data>
   <data name="Res_Start" xml:space="preserve">
     <value>Start</value>
   </data>
