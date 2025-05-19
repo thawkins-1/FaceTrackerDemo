@@ -20,9 +20,64 @@ namespace TLHFaceTrack
     /// </summary>
     public partial class MainWindow : Window
     {
+        private CamModel _camModel = null;
+
         public MainWindow()
         {
-            InitializeComponent();
+             InitializeComponent();
+
+            Button_Start.IsEnabled = true;
+            Button_Stop.IsEnabled = false;
         }
-    }
+
+        #region ui event haandlers
+        private async void Button_Start_Click(object sender, RoutedEventArgs e)
+        {
+            Button_Start.IsEnabled = false;
+            Button_Stop.IsEnabled = false;
+
+            // initialize the cam model if needed
+            if (_camModel == null)
+                _camModel = new CamModel(Image_Output);
+
+            try
+            {
+                // starting the camera
+                await _camModel.Start();
+                Button_Start.IsEnabled = false;
+                Button_Stop.IsEnabled = true;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(Properties.Resources.Res_Error_Msg, Properties.Resources.Res_Error_Title, MessageBoxButton.OK, MessageBoxImage.Error);
+                Button_Start.IsEnabled = true;
+                Button_Stop.IsEnabled = false;
+            }
+        }
+
+        private async void Button_Stop_Click(object sender, RoutedEventArgs e)
+        {
+            Button_Start.IsEnabled = false;
+            Button_Stop.IsEnabled = false;
+
+            try
+            {
+                // stopping the camera
+                await _camModel.Stop();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(Properties.Resources.Res_Error_Msg, Properties.Resources.Res_Error_Title, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+            Button_Start.IsEnabled = true;
+            Button_Stop.IsEnabled = false;
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            _camModel?.Dispose();
+        }
+        #endregion
+   }
 }

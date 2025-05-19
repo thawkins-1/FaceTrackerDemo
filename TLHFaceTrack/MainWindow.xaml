@@ -4,9 +4,42 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TLHFaceTrack"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        xmlns:prop="clr-namespace:TLHFaceTrack.Properties"
+        Closing="Window_Closing"
+        Title="TLH Face Tracker" Height="600" Width="600">
+    <Grid Margin="10" 
+          VerticalAlignment="Stretch" 
+          HorizontalAlignment="Stretch">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="60" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Border BorderBrush="Black" 
+                BorderThickness="1" 
+                Grid.Column="0" Grid.Row="1" 
+                VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <Image x:Name="Image_Output" 
+                   Grid.Row="1" Grid.Column="0" 
+                   Stretch="Fill" Margin="5" />
+        </Border>
+        <StackPanel Orientation="Horizontal" 
+                    VerticalAlignment="Center" 
+                    Height="40" 
+                    Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
+            <Button x:Name="Button_Start" 
+                    Click="Button_Start_Click"
+                    Content="{x:Static prop:Resources.Res_Start}" 
+                    VerticalAlignment="Stretch" 
+                    Width="150" Margin="0,0,15,0"/>
+            <Button x:Name="Button_Stop" 
+                    Click="Button_Stop_Click"
+                    Content="{x:Static prop:Resources.Res_Stop}" 
+                    VerticalAlignment="Stretch" 
+                    Width="150" Margin="0,0,15,0"/>
+        </StackPanel>
     </Grid>
 </Window>

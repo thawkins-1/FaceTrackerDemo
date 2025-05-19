@@ -17,6 +17,7 @@ namespace TLHFaceTrack
         private CancellationTokenSource _cancelToken;
         private readonly Image _passedInImage;
 
+        #region construction/destruction
         /// <summary>
         /// constructor
         /// </summary>
@@ -26,6 +27,18 @@ namespace TLHFaceTrack
             _passedInImage = imageFromMainWindow;
         }
 
+
+        /// <summary>
+        /// stops any in progress webcam capture
+        /// </summary>
+        public void Dispose()
+        {
+            // shutting down the webcam task, if its running
+            _cancelToken?.Cancel();
+        }
+        #endregion
+
+        #region control methods for model
         /// <summary>
         /// called to start webcam capture
         /// </summary>
@@ -114,15 +127,7 @@ namespace TLHFaceTrack
                 await _camTask;
             }
         }
-
-        /// <summary>
-        /// stops any in progress webcam capture
-        /// </summary>
-        public void Dispose()
-        {
-            // shutting down the webcam task, if its running
-            _cancelToken?.Cancel();
-        }
+        #endregion
     }
 
 }
