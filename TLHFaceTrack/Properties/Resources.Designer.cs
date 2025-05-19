@@ -61,6 +61,26 @@ namespace TLHFaceTrack.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Icon_Start {
+            get {
+                object obj = ResourceManager.GetObject("Icon_Start", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Icon_Stop {
+            get {
+                object obj = ResourceManager.GetObject("Icon_Stop", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unable to start camera.
         /// </summary>
         public static string Res_Error_Msg {

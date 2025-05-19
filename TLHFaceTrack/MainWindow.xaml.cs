@@ -46,6 +46,7 @@ namespace TLHFaceTrack
                 await _camModel.Start();
                 Button_Start.IsEnabled = false;
                 Button_Stop.IsEnabled = true;
+                Border_OutputCover.Visibility = Visibility.Hidden;
             }
             catch (Exception)
             {
@@ -59,6 +60,7 @@ namespace TLHFaceTrack
         {
             Button_Start.IsEnabled = false;
             Button_Stop.IsEnabled = false;
+            Border_OutputCover.Visibility = Visibility.Visible;
 
             try
             {

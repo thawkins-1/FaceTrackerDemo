@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:TLHFaceTrack"
         xmlns:prop="clr-namespace:TLHFaceTrack.Properties"
         Closing="Window_Closing"
-        Title="TLH Face Tracker" Height="600" Width="600">
+        Title="TLH Face Tracker" 
+        Background="Black"
+        Height="600" Width="600">
     <Grid Margin="10" 
           VerticalAlignment="Stretch" 
           HorizontalAlignment="Stretch">
@@ -15,31 +17,48 @@
             <ColumnDefinition Width="60" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="60" />
+            <RowDefinition Height="100" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Border BorderBrush="Black" 
+        <Border BorderBrush="Gray" 
                 BorderThickness="1" 
-                Grid.Column="0" Grid.Row="1" 
+                Grid.Column="0" Grid.Row="1"
+                Margin="5"
                 VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-            <Image x:Name="Image_Output" 
-                   Grid.Row="1" Grid.Column="0" 
-                   Stretch="Fill" Margin="5" />
+            <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                <Image x:Name="Image_Output"      
+                       Stretch="Fill" Margin="0" />
+                <Border x:Name="Border_OutputCover"
+                        BorderBrush="DarkGray"
+                        BorderThickness="0"
+                        VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                        Background="DarkGray"/>
+            </Grid>
         </Border>
         <StackPanel Orientation="Horizontal" 
                     VerticalAlignment="Center" 
-                    Height="40" 
+                    Height="80" 
                     Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
             <Button x:Name="Button_Start" 
+                    Style="{DynamicResource StyleButton}"
                     Click="Button_Start_Click"
-                    Content="{x:Static prop:Resources.Res_Start}" 
                     VerticalAlignment="Stretch" 
-                    Width="150" Margin="0,0,15,0"/>
+                    Width="100" Margin="0,0,15,0">
+                <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                    <Image Source="Images/Icon_Start.png" Width="50" Height="50" />
+                    <TextBlock Text="{x:Static prop:Resources.Res_Start}" TextAlignment="Center" FontWeight="Bold"/>
+                </StackPanel>
+            </Button>
             <Button x:Name="Button_Stop" 
+                    Style="{DynamicResource StyleButton}"
                     Click="Button_Stop_Click"
-                    Content="{x:Static prop:Resources.Res_Stop}" 
                     VerticalAlignment="Stretch" 
-                    Width="150" Margin="0,0,15,0"/>
+                    Width="100" Margin="0,0,15,0">
+                <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                    <Image Source="Images/Icon_Stop.png" Width="50" Height="50" />
+                    <TextBlock Text="{x:Static prop:Resources.Res_Stop}" TextAlignment="Center" FontWeight="Bold"/>
+                </StackPanel>
+            </Button>
         </StackPanel>
     </Grid>
 </Window>
